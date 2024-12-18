@@ -35,25 +35,25 @@ public class PageObjectTest implements TakeFinalScreenshot {
         checkOut = new CheckOut(page);
     }
 
-//    @BeforeEach
-//    void setUpTrace() {
-//        browserContext.tracing().start(
-//                new Tracing.StartOptions()
-//                        .setScreenshots(true)
-//                        .setSnapshots(true)
-//                        .setSources(true)
-//        );
-//    }
-//
-//    @AfterEach
-//    void recordTrace(TestInfo testInfo) {
-//
-//        var traceName = testInfo.getDisplayName().replace(" ", "");
-//        browserContext.tracing().stop(
-//                new Tracing.StopOptions()
-//                        .setPath(Paths.get("target/traces/trace-" + traceName + ".zip"))
-//        );
-//    }
+    @BeforeEach
+    void setUpTrace(BrowserContext browserContext) {
+        browserContext.tracing().start(
+                new Tracing.StartOptions()
+                        .setScreenshots(true)
+                        .setSnapshots(true)
+                        .setSources(true)
+        );
+    }
+
+    @AfterEach
+    void recordTrace(TestInfo testInfo, BrowserContext browserContext) {
+
+        var traceName = testInfo.getDisplayName().replace(" ", "");
+        browserContext.tracing().stop(
+                new Tracing.StopOptions()
+                        .setPath(Paths.get("target/traces/trace-" + traceName + ".zip"))
+        );
+    }
 
     @DisplayName("Checkout a product")
     @Story("Search and checkout for Pliers")

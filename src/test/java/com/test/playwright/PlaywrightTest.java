@@ -42,7 +42,8 @@ public abstract class PlaywrightTest {
         playwright = Playwright.create();
         playwright.selectors().setTestIdAttribute("data-test");
         browser = playwright.chromium().launch(
-                new BrowserType.LaunchOptions().setHeadless(false)
+                new BrowserType.LaunchOptions()
+                        .setHeadless(false)
                         .setArgs(Arrays.asList("--no-sandbox", "--disable-gpu"))
         );
     }
