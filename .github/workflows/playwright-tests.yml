@@ -42,7 +42,7 @@ jobs:
         run: mvn clean install -DskipTests
 
       - name: Run Playwright tests
-        run: mvn verify
+        run: mvn test
 
       - name: Archive trace files
         if: always()
