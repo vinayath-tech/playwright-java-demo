@@ -43,6 +43,8 @@ jobs:
 
       - name: Run Playwright tests
         run: mvn test
+        env:
+          BASE_URL: ${{ vars.BASE_URL }}
 
       - name: Archive trace files
         if: always()
