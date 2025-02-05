@@ -57,4 +57,4 @@ jobs:
         with:
           branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          folder: ./target/cucumber-report/cucumber.html
+          folder: ./target/cucumber-report
