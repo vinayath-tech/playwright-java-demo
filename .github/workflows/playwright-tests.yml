@@ -51,10 +51,9 @@ jobs:
           name: traces
           path: target/traces/*.zip
 
-      - name: Deploy cucumber report to Github pages
+      - name: Deploy cucumber Allure report to Github pages
         if: always()
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          folder: ./target/cucumber-report
+          publish_dir: target/site/allure-maven-plugin
