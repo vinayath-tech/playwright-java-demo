@@ -15,4 +15,9 @@ public class NavBar {
     public void clickCart(){
         page.getByTestId("nav-cart").click();
     }
+
+    @Step("Open the home page")
+    public void openHomePage() {
+        page.navigate("https://practicesoftwaretesting.com");
+    }
 }

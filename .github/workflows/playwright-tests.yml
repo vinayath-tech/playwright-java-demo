@@ -38,6 +38,9 @@ jobs:
       - name: Install Playwright dependencies
         run: npx playwright install-deps
 
+      - name: Install dependencies
+        run: mvn clean install -DskipTests
+
       - name: Run Playwright tests
         run: mvn verify
 
@@ -48,9 +51,9 @@ jobs:
           name: traces
           path: target/traces/*.zip
 
-      - name: Deploy Allure report to Github pages
+      - name: Deploy cucumber report to Github pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: target/site/allure-maven-plugin
+          publish_dir: target/cucumber-report
