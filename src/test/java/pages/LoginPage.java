@@ -14,8 +14,9 @@ public class LoginPage {
     public LoginPage(Page page) {
 
         this.page = page;
-        Dotenv dotenv = Dotenv.load();
-        baseUrl = dotenv.get("BASE_URL");
+        baseUrl = System.getenv("BASE_URL");
+//        Dotenv dotenv = Dotenv.load();
+//        baseUrl = dotenv.get("BASE_URL");
     }
 
 
