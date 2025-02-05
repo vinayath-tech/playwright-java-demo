@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - '**'
-  pull_request:
-    branches:
-      - '**'
+#  pull_request:
+#    branches:
+#      - '**'
 
 jobs:
   ui-test:
@@ -57,4 +57,4 @@ jobs:
         with:
           branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          folder: ./target/cucumber-report
+          folder: ./target/cucumber-report/cucumber.html
