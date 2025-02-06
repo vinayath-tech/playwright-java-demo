@@ -29,7 +29,7 @@ public class LoginStepDefinitions {
 
     @When("I submit valid credentials")
     public void iSubmitValidCredentials() {
-        loginPage.loginAs(new LoginUser("test@test.com", "S2per-secret"));
+        loginPage.loginAs(new LoginUser("customer@practicesoftwaretesting.com", "welcome01"));
     }
 
 
