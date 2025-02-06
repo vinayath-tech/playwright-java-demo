@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.ui;
 
 //import io.cucumber.java.Given;
 

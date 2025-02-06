@@ -1,13 +1,11 @@
-package stepdefinitions;
+package stepdefinitions.ui;
 
 import domain.CartLineItem;
-import domain.ProductSummary;
 import fixtures.PlaywrightCucumberFixtures;
 import io.cucumber.java.Before;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.qameta.allure.internal.shadowed.jackson.databind.node.DoubleNode;
 import org.assertj.core.api.Assertions;
 import pages.CheckOut;
 import pages.NavBar;

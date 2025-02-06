@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.ui;
 
 import fixtures.PlaywrightCucumberFixtures;
 import domain.ProductSummary;
