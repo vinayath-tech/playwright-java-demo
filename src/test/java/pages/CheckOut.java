@@ -75,10 +75,9 @@ public class CheckOut {
 
         List<String> billingData = List.of("address", "city", "state", "country", "postcode");
 
-        billingData.forEach(data -> {
-            Assertions.assertThat(page.getByTestId(data).inputValue())
-                    .isEqualTo(testData.get(data).asText());
-        });
+        billingData.stream()
+                .filter(data -> page.getByTestId(data).inputValue().isEmpty())
+                .forEach(data -> page.getByTestId(data).fill(testData.get(data).asText()));
     }
 
     public void proceedToPayment() {

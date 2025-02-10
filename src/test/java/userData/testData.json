@@ -1,7 +1,7 @@
 {
-  "address": "1, no where, no city",
-  "city": "NO CITY",
-  "state": "NO STATE",
-  "country": "AL",
-  "postcode": "TS1 1ST"
+  "address": "Test street 98",
+  "city": "Vienna",
+  "state": "Test state",
+  "country": "Austria",
+  "postcode": "TE1 1ET"
 }
