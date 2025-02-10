@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - '**'
-  pull_request:
-    branches:
-      - '**'
+#  pull_request:
+#    branches:
+#      - '**'
 
 jobs:
   ui-test:
@@ -38,8 +38,13 @@ jobs:
       - name: Install Playwright dependencies
         run: npx playwright install-deps
 
+      - name: Install dependencies
+        run: mvn clean install -DskipTests
+
       - name: Run Playwright tests
-        run: mvn verify
+        run: mvn test
+        env:
+          BASE_URL: ${{ vars.BASE_URL }}
 
       - name: Archive trace files
         if: always()
@@ -48,7 +53,7 @@ jobs:
           name: traces
           path: target/traces/*.zip
 
-      - name: Deploy Allure report to Github pages
+      - name: Deploy cucumber Allure report to Github pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:

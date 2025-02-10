@@ -2,23 +2,31 @@ package pages;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import domain.LoginUser;
 import domain.User;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class LoginPage {
 
     private final Page page;
+    public String baseUrl;
 
     public LoginPage(Page page) {
+
         this.page = page;
+        baseUrl = System.getenv("BASE_URL");
+//        Dotenv dotenv = Dotenv.load();
+//        baseUrl = dotenv.get("BASE_URL");
     }
+
 
     public void open() {
-        page.navigate("https://practicesoftwaretesting.com/auth/login");
+        page.navigate(baseUrl+"/auth/login");
     }
 
-    public void loginAs(User user){
-        page.getByPlaceholder("Your email").fill(user.email());
-        page.getByPlaceholder("Your password").fill(user.password());
+    public void loginAs(LoginUser loginUser) {
+        page.getByPlaceholder("Your email").fill(loginUser.email());
+        page.getByPlaceholder("Your password").fill(loginUser.password());
         page.getByRole(AriaRole.BUTTON,
                             new Page.GetByRoleOptions().setName("Login")).click();
     }

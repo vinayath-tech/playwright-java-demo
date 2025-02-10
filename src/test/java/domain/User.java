@@ -73,4 +73,28 @@ public record User(
                  this.email
          );
     }
+
+    public static User noPasswordUser() {
+
+        Faker fake = new Faker();
+        int year = fake.number().numberBetween(1970, 2000);
+        int mnth = fake.number().numberBetween(1, 12);
+        int day = fake.number().numberBetween(1, 28);
+        LocalDate date = LocalDate.of(year, mnth, day);
+        String formattedDate = date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+        return new User(
+                fake.name().firstName(),
+                fake.name().lastName(),
+                fake.address().streetAddress(),
+                fake.address().city(),
+                fake.address().state(),
+                fake.address().country(),
+                fake.address().zipCode(),
+                fake.phoneNumber().phoneNumber(),
+                formattedDate,
+                "",
+                fake.internet().emailAddress()
+        );
+    }
 }
